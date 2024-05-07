@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function populateDiv() {
+        const a = parseInt(document.getElementById("first_num").value);
+        const b = parseInt(document.getElementById("second_num").value);
+        const c = a + b;
+        document.getElementById("final").innerHTML =
+          "The sum of the given two number is " + c;
+      }
+    </script>
+    <input
+      type="text"
+      id="first_num"
+      placeholder="Enter the first number"
+    /><br /><br />
+    <input
+      type="text"
+      id="second_num"
+      placeholder="Enter the second number"
+    /><br /><br />
+    <button onclick="populateDiv()">Calculate Sum</button>
+    <div id="final"></div>
+  </body>
+</html>
