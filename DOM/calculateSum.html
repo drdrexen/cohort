@@ -16,16 +16,17 @@
       }
     </script>
     <input
+      oninput="populateDiv()"
       type="text"
       id="first_num"
       placeholder="Enter the first number"
     /><br /><br />
     <input
+      oninput="populateDiv()"
       type="text"
       id="second_num"
       placeholder="Enter the second number"
     /><br /><br />
-    <button onclick="populateDiv()">Calculate Sum</button>
     <div id="final"></div>
   </body>
 </html>
