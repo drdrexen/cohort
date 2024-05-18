@@ -10,23 +10,20 @@
       function populateDiv() {
         const a = parseInt(document.getElementById("first_num").value);
         const b = parseInt(document.getElementById("second_num").value);
-        const c = a + b;
-        document.getElementById("final").innerHTML =
-          "The sum of the given two number is " + c;
+        fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b);
       }
     </script>
     <input
-      oninput="populateDiv()"
       type="text"
       id="first_num"
       placeholder="Enter the first number"
     /><br /><br />
     <input
-      oninput="populateDiv()"
       type="text"
       id="second_num"
       placeholder="Enter the second number"
     /><br /><br />
+    <button onclick="populateDiv()">Calculate Sum</button>
     <div id="final"></div>
   </body>
 </html>
