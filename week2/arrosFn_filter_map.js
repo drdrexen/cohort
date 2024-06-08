@@ -20,3 +20,34 @@ console.log(arr2);
 const transform = (i) => i * 2;
 const arr3 = arr1.map(transform);
 console.log(arr3);
+//assignment
+const ar1 = [1,2,3,4,5,6]
+const ar2 = [2,3,4,5,6,7]
+const transform2=(a,b)=> a+b;
+
+const ar3 = ar1.map((element, index) => transform2(element, ar2[index]));
+console.log(ar3);
+
+//filterout all even numebers form the array
+const num1= [1,2,4,6,8,7,6];
+const num2 =[]
+for(let i=0;i<num1.length; i++){
+  if(num1[i]%2==0){
+    num2.push(num1[i])
+  }
+}
+console.log("the array with all even numbers is")
+console.log(num2);
+
+//solving it using filter function
+function filterFunction(i) {
+  if(i%2==0){
+    return true
+  }
+  else
+  return false;
+}
+hello1 = [1,2,3,4,5,6,7,8,9]
+const hi = hello1.filter(filterFunction);
+console.log("Using filter function")
+console.log(hi)
