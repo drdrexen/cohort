@@ -15,7 +15,7 @@ app.get("/health-checkup", function (req, res) {
     }
 
 
-    if (kidneyId = 1 && kidneyId != 2) {
+    if (kidneyId = 1 || kidneyId != 2) {
         res.status(400).json({
             "msg": "there is something wrong with your inputs"
         })
