@@ -1,3 +1,6 @@
+const express = require("express");
+const app = express();
+
 const zod = require("zod");
 
 function validateInput(obj) {
@@ -12,4 +15,19 @@ function validateInput(obj) {
 validateInput({ email: "nischalsubedi@gmail.com", password: "jkldf" })
 
 
+app.post("/login", function(req, res) {
+  const response = validateInput(req.body);
+  if (!response.success) {
+    res.json({
 
+      msg: "Invalid input"
+    })
+  }
+  else {
+
+    return;
+  }
+
+})
+
+app.listen(3000);
