@@ -51,15 +51,11 @@ app.post("/signin", function (req, res) {
 
 app.get("/users", function (req, res) {
     const token = req.headers.authorization;
-    try {
-        const decoded = jwt.verify(token, jwtPassword);
-        const username = decoded.username;
-        // return a list of users other than this username
-    } catch (err) {
-        return res.status(403).json({
-            msg: "Invalid token",
-        });
-    }
+    const decoded = jwt.verify(token, jwtPassword)
+    const username = decoded.username;
+    res.json({
+        users: ALL_USERS
+    })
 });
 
 app.listen(3000)
