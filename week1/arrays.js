@@ -15,4 +15,4 @@ arr2 = [5, 6, 7, 8]
 console.log(arr1.concat(arr2));
 
 //push-> second element is the number
-//concat-> second element is the array
+// concat-> second element is the array
