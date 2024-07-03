@@ -5,3 +5,4 @@ try {
 } catch (error) {
     console.log("hello world")
 }
+console.log("printed after the catch even there is error in try ");
