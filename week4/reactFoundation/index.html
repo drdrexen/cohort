@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      let globalID = 1;
+
+      function createChild(title, description, id) {
+        const child = document.createElement("div");
+        child.classList.add("todo-item");
+
+        const firstGrandChild = document.createElement("div");
+        firstGrandChild.classList.add("todo-title");
+        firstGrandChild.innerHTML = title;
+
+        const secondGrandChild = document.createElement("div");
+        secondGrandChild.classList.add("todo-description");
+        secondGrandChild.innerHTML = description;
+
+        const thirdGrandChild = document.createElement("button");
+        thirdGrandChild.innerHTML = "Mark as Done";
+        thirdGrandChild.classList.add("mark-done-btn");
+        thirdGrandChild.setAttribute("onclick", `markAsDone(${id})`);
+
+        child.appendChild(firstGrandChild);
+        child.appendChild(secondGrandChild);
+        child.appendChild(thirdGrandChild);
+
+        child.setAttribute("id", id);
+        return child;
+      }
+
+      function addToDo() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const parent = document.getElementById("container");
+        parent.appendChild(createChild(title, description, globalID));
+        globalID++;
+      }
+
+      function markAsDone(todoId) {
+        const parent = document.getElementById(todoId);
+        parent.children[2].innerHTML = "Done";
+        parent.classList.add("completed");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do App</h1>
+      <label for="title">Title:</label>
+      <input type="text" placeholder="Enter Title" id="title" /><br /><br />
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        placeholder="Enter Description"
+        id="description"
+      /><br /><br />
+      <button onclick="addToDo()">Add ToDo</button><br />
+    </div>
+    <div id="container" class="todo-list"></div>
+  </body>
+</html>
