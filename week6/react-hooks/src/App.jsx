@@ -1,15 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 import { Dashboard } from "./components/dashboard";
 import { Landing } from "./components/landing";
 
 export default function App() {
   return (
     <div>
-      <div style={{ background: "black", color: "white" }
-      }>
-        This is the navbar
-      </div>
+
       <BrowserRouter>
+        <Appbar />
         <Routes>
           <Route path="/" element={<Landing></Landing>}></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
@@ -17,5 +15,18 @@ export default function App() {
       </BrowserRouter>
     </div >
 
+  )
+}
+
+function Appbar() {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <div >
+        <button onClick={() => { navigate("/") }}>Landing</button>
+        <button onClick={() => { navigate("/dashboard") }}>Dashboard</button>
+
+      </div >
+    </div>
   )
 }
